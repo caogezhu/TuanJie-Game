@@ -11,3 +11,4 @@
 *.prefab~
 .DS_Store
 Thumbs.db
+*.com-unity-codely.json
