@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TJGenerators.Runtime", "TJG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityTcp.CustomTool", "UnityTcp.CustomTool.csproj", "{9B939D2E-B9E5-66C6-D781-0148AEBA1BAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{32C3BDE6-E125-3128-82C1-25D0441455A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{9B939D2E-B9E5-66C6-D781-0148AEBA1BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B939D2E-B9E5-66C6-D781-0148AEBA1BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B939D2E-B9E5-66C6-D781-0148AEBA1BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32C3BDE6-E125-3128-82C1-25D0441455A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32C3BDE6-E125-3128-82C1-25D0441455A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32C3BDE6-E125-3128-82C1-25D0441455A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32C3BDE6-E125-3128-82C1-25D0441455A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
