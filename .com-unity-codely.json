@@ -1,10 +1,10 @@
 {
-  "unity_port": 59151,
-  "stream_port": 57806,
-  "created_date": "2026-07-22T15:43:03.861Z",
+  "unity_port": 57214,
+  "stream_port": 50418,
+  "created_date": "2026-07-24T10:58:21.669Z",
   "project_path": "E:/游戏/My project/Assets",
   "reloading": false,
   "reason": "ready",
-  "seq": 4895,
-  "last_heartbeat": "2026-07-24T10:53:46.336Z"
+  "seq": 1125,
+  "last_heartbeat": "2026-07-24T11:07:51.939Z"
 }
