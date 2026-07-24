@@ -1,0 +1,13 @@
+# 团结引擎 项目忽略规则
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/UserSettings/
+*.meta~
+*.scene~
+*.prefab~
+.DS_Store
+Thumbs.db
