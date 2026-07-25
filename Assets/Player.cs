@@ -14,11 +14,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(moveSpeed*Time.deltaTime, 0 ,0);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-moveSpeed*Time.deltaTime, 0 ,0);
         }
