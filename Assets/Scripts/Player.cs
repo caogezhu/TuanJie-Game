@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     GameObject currentFloor;
     [SerializeField] int Hp;
+    [SerializeField] GameObject HpBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +77,21 @@ public class Player : MonoBehaviour
         else if(Hp <= 0)
         {
             Hp = 0;
+        }
+        UpdateHpBar();
+    }
+    void UpdateHpBar()
+    {
+        for(int i = 0; i < HpBar.transform.childCount; i++)
+        {
+            if(Hp > i)
+            {
+                HpBar.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                HpBar.transform.GetChild(i).gameObject.SetActive(false);
+            }
         }
     }
 }
