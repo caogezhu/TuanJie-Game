@@ -8,10 +8,11 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
     GameObject currentFloor;
+    [SerializeField] int Hp;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Hp = 10;
     }
 
     // Update is called once per frame
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("撞到了第一种阶梯");
                 currentFloor = other.gameObject;
+                ModifyHp(1);
             }
         }
         else if(other.gameObject.tag == "Nails")
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("撞到了第二种阶梯");
                 currentFloor = other.gameObject;
+                ModifyHp(-3);
             }
         }
         else if(other.gameObject.tag == "Ceiling")
@@ -63,5 +66,16 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    void ModifyHp(int num)
+    {
+        Hp += num;
+        if(Hp > 10)
+        {
+            Hp = 10;
+        }
+        else if(Hp <= 0)
+        {
+            Hp = 0;
+        }
+    }
 }
