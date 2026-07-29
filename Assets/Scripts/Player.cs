@@ -31,15 +31,28 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.tag == "Normal")
         {
-            Debug.Log("撞到了第一种阶梯");
-            currentFloor = other.gameObject;
+            if(other.contacts[0].normal == new Vector2(0f,1f))
+            {
+                Debug.Log("撞到了第一种阶梯");
+                currentFloor = other.gameObject;
+            }
         }
         else if(other.gameObject.tag == "Nails")
         {
-            Debug.Log("撞到了第二种阶梯");
-            currentFloor = other.gameObject;
+            if(other.contacts[0].normal == new Vector2(0f,1f))
+            {
+                Debug.Log("撞到了第二种阶梯");
+                currentFloor = other.gameObject;
+            }
         }
-
+        else if(other.gameObject.tag == "Ceiling")
+        {
+            if(other.contacts[0].normal == new Vector2(0f,1f))
+            {
+                Debug.Log("撞到天花板");
+                currentFloor.GetComponent<BoxCollider2D>().enabled = false;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -47,11 +60,6 @@ public class Player : MonoBehaviour
         if(other.gameObject.tag == "DeathLine")
         {
             Debug.Log("撞到了死亡线");
-        }
-        else if(other.gameObject.tag == "Ceiling")
-        {
-            Debug.Log("撞到天花板");
-            currentFloor.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
