@@ -28,10 +28,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(moveSpeed*Time.deltaTime, 0 ,0);
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-moveSpeed*Time.deltaTime, 0 ,0);
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         UpdateScore();
     }
