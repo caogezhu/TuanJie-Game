@@ -14,12 +14,16 @@ public class Player : MonoBehaviour
     [SerializeField] Text scoreText;
     int score;
     float scoreTime;
+    Animator anim;
+    SpriteRenderer render;
     // Start is called before the first frame update
     void Start()
     {
         Hp = 10;
         score = 0;
         scoreTime = 0f;
+        anim = GetComponent<Animator>();
+        render = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -28,12 +32,18 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(moveSpeed*Time.deltaTime, 0 ,0);
-            GetComponent<SpriteRenderer>().flipX = false;
+            render.flipX = false;
+            anim.SetBool("run", true);
         }
         else if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-moveSpeed*Time.deltaTime, 0 ,0);
-            GetComponent<SpriteRenderer>().flipX = true;
+            render.flipX = true;
+            anim.SetBool("run", true);
+        }
+        else
+        {
+            anim.SetBool("run", false);
         }
         UpdateScore();
     }
