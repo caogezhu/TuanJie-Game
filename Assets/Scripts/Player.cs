@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
                 Debug.Log("撞到了第二种阶梯");
                 currentFloor = other.gameObject;
                 ModifyHp(-3);
+                anim.SetTrigger("hurt");
             }
         }
         else if(other.gameObject.tag == "Ceiling")
@@ -74,6 +75,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("撞到天花板");
                 currentFloor.GetComponent<BoxCollider2D>().enabled = false;
+                anim.SetTrigger("hurt");
             }
         }
     }
