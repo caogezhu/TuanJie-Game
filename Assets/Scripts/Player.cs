@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     float scoreTime;
     Animator anim;
     SpriteRenderer render;
+    AudioSource deathSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
         scoreTime = 0f;
         anim = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
+        deathSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -67,6 +69,7 @@ public class Player : MonoBehaviour
                 currentFloor = other.gameObject;
                 ModifyHp(-3);
                 anim.SetTrigger("hurt");
+                other.gameObject.GetComponent<AudioSource>().Play();
             }
         }
         else if(other.gameObject.tag == "Ceiling")
@@ -76,6 +79,7 @@ public class Player : MonoBehaviour
                 Debug.Log("撞到天花板");
                 currentFloor.GetComponent<BoxCollider2D>().enabled = false;
                 anim.SetTrigger("hurt");
+                other.gameObject.GetComponent<AudioSource>().Play();
             }
         }
     }
@@ -85,6 +89,7 @@ public class Player : MonoBehaviour
         if(other.gameObject.tag == "DeathLine")
         {
             Debug.Log("撞到了死亡线");
+            deathSound.Play();
         }
     }
 
@@ -98,6 +103,7 @@ public class Player : MonoBehaviour
         else if(Hp <= 0)
         {
             Hp = 0;
+            deathSound.Play();
         }
         UpdateHpBar();
     }
