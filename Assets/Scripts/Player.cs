@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Player : MonoBehaviour
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     Animator anim;
     SpriteRenderer render;
     AudioSource deathSound;
+    [SerializeField] GameObject ReplayButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,7 +91,7 @@ public class Player : MonoBehaviour
         if(other.gameObject.tag == "DeathLine")
         {
             Debug.Log("撞到了死亡线");
-            deathSound.Play();
+            Die();
         }
     }
 
@@ -103,7 +105,7 @@ public class Player : MonoBehaviour
         else if(Hp <= 0)
         {
             Hp = 0;
-            deathSound.Play();
+            Die();
         }
         UpdateHpBar();
     }
@@ -130,5 +132,16 @@ public class Player : MonoBehaviour
             scoreTime = 0f;
             scoreText.text = "存活: " + score.ToString() + "秒";
         }
+    }
+    void Die()
+    {
+        deathSound.Play();
+        Time.timeScale = 0f;
+        ReplayButton.SetActive(true);
+    }
+    public void Replay()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("SampleScene");
     }
 }
